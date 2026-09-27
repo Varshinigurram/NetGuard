@@ -1,0 +1,30 @@
+[
+  {
+    "id": "alert-persistence-001",
+    "createdAt": "2026-09-24T18:23:53.2682562Z",
+    "severity": "high",
+    "description": "Persistence verification alert generated from the NetGuard ACL anomaly scenario.",
+    "sourceIp": "192.168.10.11",
+    "eventIds": [
+      "event-persistence-001"
+    ],
+    "updatedAt": "2026-09-24T18:23:53.2682562Z",
+    "status": "open",
+    "title": "Persistent ACL Security Alert",
+    "destinationIp": "192.168.99.2"
+  },
+  {
+    "id": "alert-pt-acl-001",
+    "createdAt": "2026-09-25T09:28:39.7764125Z",
+    "severity": "high",
+    "description": "NetGuard detected an ACL-blocked management access attempt from PC1-USER to SW1-CORE.",
+    "sourceIp": "192.168.10.11",
+    "eventIds": [
+      "pt-acl-001"
+    ],
+    "updatedAt": "2026-09-25T09:28:39.7875278Z",
+    "status": "open",
+    "title": "ACL Security Alert - PC1 Unauthorized Management Access",
+    "destinationIp": "192.168.99.2"
+  }
+]

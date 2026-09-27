@@ -1,0 +1,26 @@
+[
+  {
+    "protocol": "ICMP",
+    "id": "event-persistence-001",
+    "severity": "high",
+    "destinationIp": "192.168.99.2",
+    "sourceDeviceId": "pc1-user",
+    "sourceIp": "192.168.10.11",
+    "timestamp": "2026-09-24T18:23:42.2180150Z",
+    "message": "Persistent test: ACL blocked unauthorized management access from PC1-USER to SW1-CORE",
+    "eventType": "ACL_BLOCK",
+    "destinationDeviceId": "sw1-core"
+  },
+  {
+    "destinationDeviceId": "sw1-core",
+    "destinationIp": "192.168.99.2",
+    "eventType": "ACL_BLOCK",
+    "id": "pt-acl-001",
+    "message": "ACL blocked unauthorized management access from PC1-USER to SW1-CORE",
+    "protocol": "ICMP",
+    "severity": "high",
+    "sourceDeviceId": "pc1-user",
+    "sourceIp": "192.168.10.11",
+    "timestamp": "2026-09-25T09:21:40.761Z"
+  }
+]
