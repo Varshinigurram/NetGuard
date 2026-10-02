@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AppShell } from './components/layout/AppShell';
 import { OverviewPage } from './pages/Overview';
@@ -10,6 +10,12 @@ import { TopologyPage } from './pages/Topology';
 import { useBackendHealth } from './hooks/useBackendHealth';
 import { useApi } from './hooks/useApi';
 import { getAlerts } from './services/api';
+
+// TestIngest is a development/demo tool only.
+// React.lazy + import.meta.env.DEV ensures Vite tree-shakes it from production bundles.
+const TestIngestPage = import.meta.env.DEV
+  ? lazy(() => import('./pages/TestIngest').then(m => ({ default: m.TestIngestPage })))
+  : null;
 
 export default function App() {
   const { status: backendStatus } = useBackendHealth(10000);
@@ -45,6 +51,16 @@ export default function App() {
         <Route path="/alerts"    element={<AlertsPage   key={refreshTick} />} />
         <Route path="/anomalies" element={<AnomaliesPage key={refreshTick} />} />
         <Route path="/topology"  element={<TopologyPage  key={refreshTick} />} />
+        {import.meta.env.DEV && TestIngestPage && (
+          <Route
+            path="/test-ingest"
+            element={
+              <Suspense fallback={null}>
+                <TestIngestPage />
+              </Suspense>
+            }
+          />
+        )}
       </Route>
     </Routes>
   );

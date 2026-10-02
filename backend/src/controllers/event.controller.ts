@@ -2,9 +2,8 @@ import { Request, Response } from "express";
 import {
   getAllEvents,
   getEventById,
-  createEvent
 } from "../services/event.service.js";
-import { NetworkEvent } from "../types/event.js";
+import { ingestEvent } from "../services/ingestion.service.js";
 
 export function getEvents(
   _req: Request,
@@ -47,12 +46,33 @@ export function postEvent(
   req: Request,
   res: Response
 ): void {
-  const event = req.body as NetworkEvent;
+  const result = ingestEvent(req.body);
 
-  const createdEvent = createEvent(event);
+  if (result.status === "validation_error") {
+    res.status(400).json({
+      success: false,
+      message: "Event validation failed.",
+      errors: result.errors,
+    });
+    return;
+  }
 
+  if (result.status === "duplicate") {
+    // Idempotent: return 200 (not 201) with the existing event to avoid false errors
+    // when a retry or demo re-submission occurs.
+    res.status(200).json({
+      success: true,
+      duplicate: true,
+      message: result.message,
+    });
+    return;
+  }
+
+  // status === "created"
   res.status(201).json({
     success: true,
-    data: createdEvent
+    data: result.event,
+    anomalyDetected: result.anomalyDetected,
+    alertCreated: result.alertCreated,
   });
 }

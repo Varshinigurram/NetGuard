@@ -9,7 +9,11 @@ import metricRoutes from "./routes/metric.routes.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_ORIGIN ?? "http://localhost:5173",
+  methods: ["GET", "POST", "PATCH"],
+  allowedHeaders: ["Content-Type"],
+}));
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => {

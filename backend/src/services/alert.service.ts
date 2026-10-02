@@ -23,6 +23,10 @@ export function getAlertById(
   );
 }
 
+export function alertExistsByEventId(eventId: string): boolean {
+  return alerts.some((alert) => alert.eventIds.includes(eventId));
+}
+
 export function createAlert(
   alert: SecurityAlert
 ): SecurityAlert {

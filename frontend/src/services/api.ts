@@ -62,3 +62,22 @@ export async function getAnomaly(id: string): Promise<AnomalyResponse> {
   const res = await apiClient.get<AnomalyResponse>(`/api/anomalies/${id}`);
   return res.data;
 }
+
+export async function postEvent(event: Omit<NetworkEvent, never>): Promise<{
+  success: boolean;
+  duplicate?: boolean;
+  message?: string;
+  data?: NetworkEvent;
+  anomalyDetected?: boolean;
+  alertCreated?: boolean;
+}> {
+  const res = await apiClient.post('/api/events', event);
+  return res.data as {
+    success: boolean;
+    duplicate?: boolean;
+    message?: string;
+    data?: NetworkEvent;
+    anomalyDetected?: boolean;
+    alertCreated?: boolean;
+  };
+}

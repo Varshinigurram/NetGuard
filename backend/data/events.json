@@ -22,5 +22,29 @@
     "sourceDeviceId": "pc1-user",
     "sourceIp": "192.168.10.11",
     "timestamp": "2026-09-25T09:21:40.761Z"
+  },
+  {
+    "id": "demo-acl-1790953311182",
+    "timestamp": "2026-10-02T15:02:00.851Z",
+    "eventType": "ACL_BLOCK",
+    "severity": "high",
+    "message": "ACL blocked unauthorized management access from PC1-USER to SW1-CORE",
+    "sourceIp": "192.168.10.11",
+    "destinationIp": "192.168.99.2",
+    "sourceDeviceId": "pc1-user",
+    "destinationDeviceId": "sw1-core",
+    "protocol": "ICMP"
+  },
+  {
+    "id": "demo-acl-1790953382178",
+    "timestamp": "2026-10-02T15:03:36.090Z",
+    "eventType": "ACL_BLOCK",
+    "severity": "high",
+    "message": "ACL blocked unauthorized management access from PC1-USER to SW1-CORE",
+    "sourceIp": "192.168.10.11",
+    "destinationIp": "192.168.99.2",
+    "sourceDeviceId": "pc1-user",
+    "destinationDeviceId": "sw1-core",
+    "protocol": "ICMP"
   }
 ]

@@ -26,5 +26,33 @@
     "status": "open",
     "title": "ACL Security Alert - PC1 Unauthorized Management Access",
     "destinationIp": "192.168.99.2"
+  },
+  {
+    "id": "alert-demo-acl-1790953311182",
+    "createdAt": "2026-10-02T15:02:01.247Z",
+    "updatedAt": "2026-10-02T15:02:01.247Z",
+    "title": "ACL Security Alert - PC1-USER Unauthorized Access to SW1-CORE",
+    "description": "Access control list blocked network traffic.  |  Source: 192.168.10.11  |  Destination: 192.168.99.2  |  Protocol: ICMP",
+    "severity": "high",
+    "status": "open",
+    "eventIds": [
+      "demo-acl-1790953311182"
+    ],
+    "sourceIp": "192.168.10.11",
+    "destinationIp": "192.168.99.2"
+  },
+  {
+    "id": "alert-demo-acl-1790953382178",
+    "createdAt": "2026-10-02T15:03:36.101Z",
+    "updatedAt": "2026-10-02T15:03:36.101Z",
+    "title": "ACL Security Alert - PC1-USER Unauthorized Access to SW1-CORE",
+    "description": "Access control list blocked network traffic.  |  Source: 192.168.10.11  |  Destination: 192.168.99.2  |  Protocol: ICMP",
+    "severity": "high",
+    "status": "open",
+    "eventIds": [
+      "demo-acl-1790953382178"
+    ],
+    "sourceIp": "192.168.10.11",
+    "destinationIp": "192.168.99.2"
   }
 ]

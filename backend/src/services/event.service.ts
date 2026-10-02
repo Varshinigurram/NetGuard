@@ -23,6 +23,10 @@ export function getEventById(
   );
 }
 
+export function eventExists(id: string): boolean {
+  return events.some((event) => event.id === id);
+}
+
 export function createEvent(
   event: NetworkEvent
 ): NetworkEvent {
